@@ -2,10 +2,6 @@ package array
 
 import "math"
 
-func main() {
-	println(isHappy(2))
-}
-
 // 202. Happy Number
 // https://leetcode.com/problems/happy-number
 //
