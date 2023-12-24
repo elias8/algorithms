@@ -1,25 +1,23 @@
 package array
 
-import "math"
-
 // 35. Search Insert Position
 // https://leetcode.com/problems/search-insert-position/
 //
 // O(log(n)) time | O(1) space
 func searchInsert(nums []int, target int) int {
-	left, right, mid := 0, len(nums)-1, 0
+	left, mid, right := 0, 0, len(nums)-1
 	for left <= right {
-		mid = int(math.Trunc(float64((left + right) / 2)))
+		mid = (left + right) >> 1
 		if nums[mid] == target {
 			return mid
-		} else if nums[mid] < target {
-			left++
-		} else {
-			right--
+		} else if target > nums[mid] {
+			left = mid + 1
+		} else if target < nums[mid] {
+			right = mid - 1
 		}
 	}
 
-	if target > nums[mid] {
+	if nums[mid] < target {
 		return mid + 1
 	}
 	return mid
