@@ -5,9 +5,9 @@ package array
 //
 // O(n) time | O(1) space
 func missingNumber(nums []int) int {
-	total := 0
+	missingNumber := len(nums) * (len(nums) + 1) / 2
 	for _, num := range nums {
-		total += num
+		missingNumber -= num
 	}
-	return (len(nums) * (len(nums) + 1) / 2) - total
+	return missingNumber
 }
